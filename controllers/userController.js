@@ -11,8 +11,9 @@ const userController = {
     },
     show: async (req, res) => {
         try {
-            const userId = req.params.id
+            const userId = req.params.userId
             const user = await User.findById(userId)
+            console.log(user)
             res.json(user)
         } catch (err) {
             console.log(err)
@@ -31,7 +32,7 @@ const userController = {
     },
     update: async (req, res) => {
         try {
-          const userId = req.params.id
+          const userId = req.params.userId
           const updateduser = req.body
           const saveduser = await User.findByIdAndUpdate(userId, updateduser, {new: true})
           res.json(saveduser)
@@ -43,7 +44,7 @@ const userController = {
     delete: async (req, res) => {
         console.log('DELETE')
         try {
-          const userId = req.params.id
+          const userId = req.params.userId
           const deleteduser = await User.findByIdAndRemove(userId)
           res.json(deleteduser)
         } catch (err) {

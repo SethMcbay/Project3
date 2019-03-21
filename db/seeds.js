@@ -10,3 +10,10 @@ Wine.deleteMany().then(() => {
     const LaClarine = new Wine({name: 'LaClarineFarmJambaliaRouge', description: 'Sierra Foothills, California'})
     return LaClarine.save()
   })
+  User.deleteMany().then(() => {
+    const Peter = new User({name: 'Peter', age: 39,  winepreference: 'Cabernet', email: 'peter@yahoo.com'})
+    return Peter.save()
+  }).then(() => {
+  const Seth = new User({name: 'Seth', age: 40, winepreference: 'PinotNoir', email: "sethmcbay@yahoo.com", winecellar: []})
+  return Seth.save()
+})
