@@ -1,0 +1,20 @@
+const mongoose = require('../db/connection.js')
+const Schema = mongoose.Schema
+
+const Wine = new Schema({
+    name: String,
+    vintner: String,
+    type: String,
+    year: Date,
+    rating: Number
+})
+
+const User = new Schema({
+    name: String,
+    age: Number,
+    wineprefernce: String,
+    email: String,
+    winecellar: []
+})
+
+module.exports = mongoose.model('Wine', Wine)
