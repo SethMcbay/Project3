@@ -9,12 +9,5 @@ const Wine = new Schema({
     rating: Number
 })
 
-const User = new Schema({
-    name: String,
-    age: Number,
-    wineprefernce: String,
-    email: String,
-    winecellar: []
-})
 
 module.exports = mongoose.model('Wine', Wine)

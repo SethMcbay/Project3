@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI)
 } else {
-    mongoose.connect('mongodb://localhost/bog-express-one')
+    mongoose.connect('mongodb://localhost/project3')
 }
 
 mongoose.connection.on('error', (err) => {
