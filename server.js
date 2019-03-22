@@ -6,10 +6,8 @@ const routes = require('./routes/index.js')
 app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static(`${__dirname}/client/build`))
-// app.get('/', (req, res) => {
-//     res.send("hello world")
-// })
+app.use(express.static(`${__dirname}/client/build`))
+
 app.use('/api/v1', routes)
 
 
