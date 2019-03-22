@@ -1,4 +1,4 @@
-const User = require('../models/user.js')
+const User = require('../models/User.js')
 
 const userController = {
     index: async (req, res) => {
