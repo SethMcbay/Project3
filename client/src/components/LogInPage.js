@@ -6,7 +6,7 @@ class LogInPage extends Component {
     state = {
         users: [],
         user: {
-            userName: '',
+            name: '',
             email: ''
         },
         redirectToHome: false,
@@ -18,16 +18,17 @@ class LogInPage extends Component {
     }
 
     getAllUsers = () => {
-        axios.get('/api/users').then(res => {
+        axios.get('/api/v1/user').then(res => {
+            console.log(res.data)
             this.setState({users: res.data})
         })
     }
 
     createUser = () => {
-        axios.post('/api/users', {user: this.state.user})
+        axios.post('/api/v1/user', this.state.user)
             .then(res => {
                 console.log(res.data)
-                this.setState({redirectToHome: true, createdUser: res.data})
+                this.setState({createdUser: res.data})
             })
     }
 
@@ -60,7 +61,7 @@ class LogInPage extends Component {
                                 to={`/user/${user._id}`}
                                 key={user._id}
                             >
-                            {user.userName}
+                            {user.name}
                             </Link>
                         )
                     })
@@ -69,12 +70,12 @@ class LogInPage extends Component {
                 
                 <form onSubmit={this.handleSignUp}>
                     <div>
-                        <label htmlFor="userName">Username</label>
+                        <label htmlFor="name">Username</label>
                         <input
                             type="text"
-                            name="userName"
+                            name="name"
                             onChange={this.handleChange}
-                            value={this.state.user.userName}
+                            value={this.state.user.name}
                         />
                     </div>
                     <div>
@@ -83,7 +84,7 @@ class LogInPage extends Component {
                             type="email"
                             name="email"
                             onChange={this.handleChange}
-                            value={this.state.user.password}
+                            value={this.state.user.email}
                         />
                     </div>
                     <button>Create User</button>

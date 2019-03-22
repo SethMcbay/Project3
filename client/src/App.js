@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LogInPage from './components/LogInPage.js'
 import NavBarComponent from './components/NavBarComponent.js'
+import Wines from './components/Wines.js';
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={LogInPage} />
           <Route path="/login" component={LogInPage} />
+          <Route path="/wines" component={Wines}/>
           {/* <Route path="/user/:userId" component={} /> */}
         </Switch>
       </Router>
