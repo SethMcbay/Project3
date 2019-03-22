@@ -1,4 +1,4 @@
-const Wine = require('../models/wine.js')
+const Wine = require('../models/Wine.js')
 const User = require('../models/User')
 const mongoose = require('mongoose')
   
