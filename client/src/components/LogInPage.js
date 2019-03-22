@@ -66,7 +66,7 @@ class LogInPage extends Component {
                     })
                 }
 
-                <h2>Sign Up</h2>
+                
                 <form onSubmit={this.handleSignUp}>
                     <div>
                         <label htmlFor="userName">Username</label>
@@ -78,10 +78,10 @@ class LogInPage extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="email">Email</label>
                         <input
-                            type="password"
-                            name="password"
+                            type="email"
+                            name="email"
                             onChange={this.handleChange}
                             value={this.state.user.password}
                         />
