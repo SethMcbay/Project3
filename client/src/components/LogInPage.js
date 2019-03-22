@@ -7,7 +7,7 @@ class LogInPage extends Component {
         users: [],
         user: {
             userName: '',
-            password: ''
+            email: ''
         },
         redirectToHome: false,
         createdUser: {}
@@ -50,9 +50,9 @@ class LogInPage extends Component {
         return (
             <div>
                 <h1>Log in Page</h1>
-                <Link to="/">Go Back Home</Link>
+                
 
-                <h2></h2>
+                
                 {
                     this.state.users.map((user) => {
                         return (
