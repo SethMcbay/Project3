@@ -81,7 +81,7 @@ class Wines extends Component {
                         return (
                             <div key={wine._id}>
                                 <Link
-                                    to={`/${wine._id}`}
+                                    to={`/wines/${wine._id}`}
                                 >
                                     {wine.name}
                                 </Link>

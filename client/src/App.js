@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LogInPage from './components/LogInPage.js'
 import NavBarComponent from './components/NavBarComponent.js'
 import Wines from './components/Wines.js';
+import Wine from './components/Wine'
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={LogInPage} />
           <Route path="/login" component={LogInPage} />
+          <Route path='/wines/:id' component={Wine}/>
           <Route path="/wines" component={Wines}/>
           {/* <Route path="/user/:userId" component={} /> */}
         </Switch>
