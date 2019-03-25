@@ -4,6 +4,7 @@ import LogInPage from './components/LogInPage.js'
 import NavBarComponent from './components/NavBarComponent.js'
 import Wines from './components/Wines.js';
 import Wine from './components/Wine'
+import User from './components/User.js'
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/login" component={LogInPage} />
           <Route path='/wines/:id' component={Wine}/>
           <Route path="/wines" component={Wines}/>
+          <Route path="/user/:userId" component={User}/>
           {/* <Route path="/user/:userId" component={} /> */}
         </Switch>
       </Router>
