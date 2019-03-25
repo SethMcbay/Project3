@@ -3,10 +3,11 @@ const Schema = mongoose.Schema
 
 const Wine = new Schema({
     name: String,
-    vintner: String,
+    region: String,
     type: String,
-    year: Date,
-    rating: Number
+    year: Number,
+    rating: Number,
+    description: String
 })
 
 

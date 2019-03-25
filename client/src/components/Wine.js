@@ -6,7 +6,7 @@ class Wine extends Component {
   state = {
       wine: {
           name: '',
-          description: ''
+          Description: ''
       },
       redirectToHome: false,
       isEditFormDisplayed: false
@@ -19,7 +19,7 @@ class Wine extends Component {
       })
   }
 
-  deleteCreature = () => {
+  deleteWine = () => {
       axios.delete(`/api/v1/${this.props.match.params.id}`).then(res => {
           this.setState({redirectToHome: true})
       })
@@ -42,7 +42,7 @@ class Wine extends Component {
       axios
         .put(`/api/v1/${this.props.match.params.id}`, {
             name: this.state.wine.name,
-            description: this.state.wine.description
+            Description: this.state.wine.Description
         })
         .then(res => {
             this.setState({wine: res.data, isEditFormDisplayed: false})
@@ -69,7 +69,7 @@ class Wine extends Component {
                             type="text"
                             name="name"
                             onChange={this.handleChange}
-                            value={this.state.creature.name}
+                            value={this.state.wine.name}
                         />
                     </div>
                     <div>
@@ -88,7 +88,19 @@ class Wine extends Component {
                         Name: {this.state.wine.name}
                     </div>
                     <div>
+                      Type: {this.state.wine.type}
+                    </div>
+                    <div>
                         Description: {this.state.wine.description}
+                    </div>
+                    <div>
+                      Region: {this.state.wine.region}
+                    </div>
+                    <div> 
+                      Year: {this.state.wine.year}
+                    </div>
+                    <div>
+                      Rating: {this.state.wine.rating}
                     </div>
                     <button onClick={this.deleteWine}>Delete</button>
                 </div>
