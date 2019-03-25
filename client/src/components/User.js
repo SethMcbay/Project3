@@ -80,7 +80,7 @@ class User extends Component {
                   type="text"
                   name="name"
                   onChange={this.handleChange}
-                  value={this.state.User.name}
+                  value={this.state.user.name}
                 />
               </div>
               <div>
@@ -89,7 +89,7 @@ class User extends Component {
                   id="description"
                   name="description"
                   onChange={this.handleChange}
-                  value={this.state.User.description}
+                  value={this.state.user.description}
                 />
               </div>
               <button>Update</button>
