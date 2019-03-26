@@ -112,12 +112,15 @@ class User extends Component {
             : <div>
               <div>Name: {this.state.user.name}</div>
               <div>Email: {this.state.user.email}</div>
-              <div>WINEEEEE: {this.state.user.winecellar.map((wine, i)=>{
+              <div>Wine: {this.state.user.winecellar.map((wine, i) => {
                 return(
                   <div key={i}>
                     {wine.name}
-                    {/* fill in the rest off the wine info */}
-
+                    {wine.region}
+                    {wine.type}
+                    {wine.year}
+                    {wine.rating}
+                    {wine.description} 
                   </div>
                 )
 
