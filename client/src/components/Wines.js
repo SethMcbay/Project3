@@ -9,7 +9,6 @@ class Wines extends Component {
             name: '',
             year: '',
             location: '',
-            price: '',
             type: '',
             vintner: '',
             rating: '',
