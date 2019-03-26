@@ -1,5 +1,6 @@
 const Wine = require('../models/Wine.js')
 
+
 const wineController = {
     index: async (req, res) => {
         try {

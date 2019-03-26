@@ -3,7 +3,7 @@ const User = require('../models/User.js')
 const userController = {
     index: async (req, res) => {
         try {
-            const user = await User.find({})
+            const user = await User.find({}).populate('winecellar')
             res.json(user)
         } catch (err) {
             console.log(err)
@@ -12,7 +12,7 @@ const userController = {
     show: async (req, res) => {
         try {
             const userId = req.params.userId
-            const user = await User.findById(userId)
+            const user = await User.findById(userId).populate('winecellar')
             console.log(user)
             res.json(user)
         } catch (err) {

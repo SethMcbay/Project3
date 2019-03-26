@@ -6,7 +6,13 @@ const User = new Schema({
     age: Number,
     wineprefernce: String,
     email: String,
-    winecellar: []
+    winecellar: [
+        {type: Schema.Types.ObjectId,
+         ref: 'UserWine'   
+        
+        }
+
+    ]
 })
 
 module.exports = mongoose.model('User', User)

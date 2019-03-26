@@ -9,7 +9,14 @@ class User extends Component {
       age: '',
       wineprefernce: '',
       email: '',
-      winecellar: []
+      winecellar: [{
+        name: '',
+        region: '',
+        type: '',
+        year: '',
+        rating: '',
+        description: ''
+      }]
     },
     redirectToHome: false,
     isEditFormDisplayed: false
@@ -18,6 +25,7 @@ class User extends Component {
   componentDidMount = () => {
     console.log(this.props.match.params.userId)
     axios.get(`/api/v1/user/${this.props.match.params.userId}`).then(res => {
+
       this.setState({ user: res.data })
     })
   }
@@ -104,6 +112,19 @@ class User extends Component {
             : <div>
               <div>Name: {this.state.user.name}</div>
               <div>Email: {this.state.user.email}</div>
+              <div>WINEEEEE: {this.state.user.winecellar.map((wine, i)=>{
+                return(
+                  <div key={i}>
+                    {wine.name}
+                    {/* fill in the rest off the wine info */}
+
+                  </div>
+                )
+
+              }) }</div>
+
+
+{/* make a form where they can post wine to axios: api v1 user userId userwine */}
               <button onClick={() => this.deleteUser(this.state.user._id)}>Delete</button>
             </div>
         }
