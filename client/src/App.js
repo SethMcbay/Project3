@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LogInPage from './components/LogInPage.js'
 import NavBarComponent from './components/NavBarComponent.js'
 import Wines from './components/Wines.js';
-import Wine from './components/Wine'
+import Wine from './components/Wine.js'
 import User from './components/User.js'
 
 

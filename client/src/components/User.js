@@ -4,7 +4,13 @@ import axios from "axios";
 
 class User extends Component {
   state = {
-    user: {},
+    user: {
+      name: '',
+      age: '',
+      wineprefernce: '',
+      email: '',
+      winecellar: []
+    },
     redirectToHome: false,
     isEditFormDisplayed: false
   }
@@ -30,17 +36,17 @@ class User extends Component {
   }
 
   handleChange = (e) => {
-    const cloneUser = { ...this.state.users }
+    const cloneUser = { ...this.state.user }
     cloneUser[e.target.name] = e.target.value
-    this.setState({ users: cloneUser })
+    this.setState({ user: cloneUser })
   }
 
   updateUser = (e) => {
     e.preventDefault()
     axios
-      .put(`/api/v1/${this.props.match.params.id}`, {
-        name: this.state.users.name,
-        description: this.state.users.description
+      .put(`/api/v1/user/${this.props.match.params.userId}`, {
+        name: this.state.user.name,
+        email: this.state.user.email
       })
       .then(res => {
         this.setState({ users: res.data, isEditFormDisplayed: false })
@@ -50,6 +56,7 @@ class User extends Component {
   render() {
     if (this.state.redirectToHome) {
       return (<Redirect to="/" />)
+      
     }
     // const users = this.state.users.map((user, i) => {
     //   return (
@@ -84,12 +91,12 @@ class User extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="email">Email</label>
                 <textarea
-                  id="description"
-                  name="description"
+                  id="email"
+                  name="email"
                   onChange={this.handleChange}
-                  value={this.state.user.description}
+                  value={this.state.user.email}
                 />
               </div>
               <button>Update</button>
@@ -100,6 +107,7 @@ class User extends Component {
               <button onClick={() => this.deleteUser(this.state.user._id)}>Delete</button>
             </div>
         }
+         <Link to="/wines">My Wine Cellar</Link>
       </div>
     )
   }

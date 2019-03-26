@@ -14,14 +14,13 @@ class Wine extends Component {
 
   componentDidMount = () => {
       axios.get(`/api/v1/wine/${this.props.match.params.id}`).then(res => {
-        console.log(res.data)  
         this.setState({wine: res.data})
       })
   }
 
   deleteWine = () => {
-      axios.delete(`/api/v1/${this.props.match.params.id}`).then(res => {
-          this.setState({redirectToHome: true})
+      axios.delete(`/api/v1/wine/${this.props.match.params.id}`).then(res => {
+          this.props.history.goBack()
       })
   }
 
@@ -56,7 +55,7 @@ class Wine extends Component {
 
     return (
       <div>
-        <Link to="/api/v2/wines">Back to Wines Home</Link>
+        <Link to="/wines">Back to Wines Home</Link>
         <h1>Wine</h1>
         <button onClick={this.toggleEditForm}>Edit</button>
         {

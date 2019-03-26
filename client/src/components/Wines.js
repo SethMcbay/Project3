@@ -75,6 +75,7 @@ class Wines extends Component {
         return (
             <div>
                 <h1>Wine Cellar</h1>
+                <Link to="/"><button>Back to Home</button></Link>
                 {
                     this.state.wines.map(wine => {
                         return (
