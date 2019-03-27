@@ -6,14 +6,16 @@ class Wine extends Component {
   state = {
       wine: {
           name: '',
-          Description: ''
+          description: ''
       },
       redirectToHome: false,
       isEditFormDisplayed: false
   }
 
   componentDidMount = () => {
+    //   console.log(this.props.match.params.id)
       axios.get(`/api/v1/wine/${this.props.match.params.id}`).then(res => {
+          console.log(res.data)
         this.setState({wine: res.data})
       })
   }
@@ -58,7 +60,7 @@ class Wine extends Component {
         <Link to="/wines">Back to Wines Home</Link>
         <h1>Wine</h1>
         <button onClick={this.toggleEditForm}>Edit</button>
-        {
+        {/* {
             this.state.isEditFormDisplayed
                 ? <form onSubmit={this.updateWine}>
                     <div>
@@ -103,8 +105,8 @@ class Wine extends Component {
                     </div>
                     <button onClick={this.deleteWine}>Delete</button>
                 </div>
-        }
-      </div>
+        } */}
+      </div> 
     );
   }
 }

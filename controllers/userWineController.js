@@ -23,10 +23,21 @@ const userWineController = {
                     userdata.save()
                     res.send(userdata)
                 })
-
+                
             })
-
-    },
+        },
+     show: async (req, res) => {
+                try {
+                    const userId = req.params.userId
+                    const wine = await User.findById(userId).then(user =>{
+                        const userWine = user.wines.id(req.params.wineId)
+                        res.json(userWine)
+                    })
+                } catch (err) {
+                    console.log(err)
+                    res.json(err)
+                }
+    }
 
 
 }
