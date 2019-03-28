@@ -10,7 +10,7 @@ My project is a Wine App that you can use to create a list of the wines you have
 https://github.com/SethMcbay/Project3
 
 # Heroku site:
-https://dashboard.heroku.com/apps/sheltered-chamber-74702
+https://sheltered-chamber-74702.herokuapp.com/
 
 # Trello Board
 https://trello.com/b/E3KfS1RF/project-3
