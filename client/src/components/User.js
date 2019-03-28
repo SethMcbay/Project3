@@ -20,8 +20,13 @@ class User extends Component {
       rating: '',
       description: ''
     },
+    updatedUser: {
+      name: '',
+      email: ''
+    },
     redirectToHome: false,
-    isAddFormDisplayed: false
+    isAddFormDisplayed: false,
+    showEditForm: false,
   }
 
   componentDidMount = () => {
@@ -40,6 +45,7 @@ class User extends Component {
       this.setState({ redirectToHome: true })
     })
   }
+
   deleteWine = (e, wineId) => {
     console.log(e)
     console.log(wineId)
@@ -56,10 +62,22 @@ class User extends Component {
     })
   }
 
+  toggleEditForm = () => {
+    this.setState((state, props) => {
+      return { showEditForm: !this.state.showEditForm }
+    })
+  }
+
   handleChange = (e) => {
     const newWine = {...this.state.newUserWine}
     newWine[e.target.name] = e.target.value
     this.setState({newUserWine: newWine})
+  }
+
+  handleUserEditChange = (e) => {
+    const updatedUser = {...this.state.user}
+    updatedUser[e.target.name] = e.target.value
+    this.setState({ user: updatedUser})
   }
   
 
@@ -86,7 +104,7 @@ class User extends Component {
         email: this.state.user.email
       })
       .then(res => {
-        this.setState({ users: res.data, isAddFormDisplayed: false })
+        this.setState({ users: res.data, showEditForm: false })
       })
   }
 
@@ -185,6 +203,34 @@ class User extends Component {
                 )
 
               }) }</div>
+              <button onClick={this.toggleEditForm}>Edit User</button>
+              {
+                this.state.showEditForm ?
+                <form onSubmit={this.updateUser}>
+              <div>
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  onChange={this.handleUserEditChange}
+                  value={this.state.user.name}
+                />
+              </div>
+              <div>
+              <label htmlFor="email">E-mail</label>
+                <input
+                  id="email"
+                  type="text"
+                  name="email"
+                  onChange={this.handleUserEditChange}
+                  value={this.state.user.email}
+                />
+              </div>
+              <button>Update</button>
+              </form>
+              : null
+              }
               <button onClick={() => this.deleteUser(this.state.user._id)}>Delete</button>
             </div>
         }
