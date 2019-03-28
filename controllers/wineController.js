@@ -7,7 +7,7 @@ const wineController = {
             const wine = await Wine.find({})
             res.json(wine)
         } catch (err) {
-            console.log(err)
+            
         }
     },
     show: async (req, res) => {
@@ -16,7 +16,7 @@ const wineController = {
             const wine = await Wine.findById(wineId)
             res.json(wine)
         } catch (err) {
-            console.log(err)
+          
             res.json(err)
         }
     },
@@ -25,8 +25,7 @@ const wineController = {
           const newWine = req.body
           const savedWine = await Wine.create(newWine)
           res.json(savedWine)
-        } catch (err) {
-          console.log(err)
+        } catch (err) {          
           res.status(500).json(err)
         }
     },
@@ -37,18 +36,15 @@ const wineController = {
           const savedWine = await Wine.findByIdAndUpdate(wineId, updatedWine, {new: true})
           res.json(savedWine)
         } catch (err) {
-          console.log(err)
           res.status(500).json(err)
         }
     },
     delete: async (req, res) => {
-        console.log('DELETE')
         try {
           const wineId = req.params.wineId
           const deletedWine = await Wine.findByIdAndRemove(wineId)
           res.json(deletedWine)
         } catch (err) {
-          console.log(err)
           res.status(500).json(err)
         }
     }

@@ -26,3 +26,11 @@ https://trello.com/b/E3KfS1RF/project-3
 ## Trello
 ## Heroku
 ## Github
+
+# Future Plans
+add more styling,
+make it responsive,
+add more pictures,
+refactor some code,
+learn more about react
+

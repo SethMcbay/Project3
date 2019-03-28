@@ -13,7 +13,6 @@ const userController = {
         try {
             const userId = req.params.userId
             const user = await User.findById(userId).populate('winecellar')
-            console.log(user)
             res.json(user)
         } catch (err) {
             console.log(err)
@@ -26,7 +25,6 @@ const userController = {
           const saveduser = await User.create(newuser)
           res.json(saveduser)
         } catch (err) {
-          console.log(err)
           res.status(500).json(err)
         }
     },
@@ -37,7 +35,6 @@ const userController = {
           const saveduser = await User.findByIdAndUpdate(userId, updateduser, {new: true})
           res.json(saveduser)
         } catch (err) {
-          console.log(err)
           res.status(500).json(err)
         }
     },
@@ -48,7 +45,6 @@ const userController = {
           const deleteduser = await User.findByIdAndRemove(userId)
           res.json(deleteduser)
         } catch (err) {
-          console.log(err)
           res.status(500).json(err)
         }
     }

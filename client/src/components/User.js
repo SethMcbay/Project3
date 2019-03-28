@@ -47,12 +47,10 @@ class User extends Component {
   }
 
   deleteWine = (e, wineId) => {
-    console.log(e)
-    console.log(wineId)
     e.preventDefault()
     axios.delete(`/api/v1/user/${this.props.match.params.userId}/userWine/${wineId}`).then(res => {
       this.getUser()
-      // this.setState({ redirectToHome: true })
+     
     })
   }
 
@@ -93,7 +91,7 @@ class User extends Component {
     })
     this.setState({isAddFormDisplayed: !this.state.isAddFormDisplayed})
     this.getUser()
-    console.log('got user')
+    
   }
 
   updateUser = (e) => {

@@ -24,7 +24,7 @@ class Wines extends Component {
         axios.get('/api/v1/wine').then(res => {
             this.setState({ wines: res.data })
         })
-        console.log(this.props)
+        
         
     }
 

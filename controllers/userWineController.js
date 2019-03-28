@@ -33,7 +33,6 @@ const userWineController = {
                     const savedWine = await UserWine.findById(wineId)
                     res.json(savedWine)
                 } catch (err) {
-                    console.log(err)
                     res.json(err)
                 }
     },

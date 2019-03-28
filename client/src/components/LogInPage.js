@@ -19,7 +19,7 @@ class LogInPage extends Component {
 
     getAllUsers = () => {
         axios.get('/api/v1/user').then(res => {
-            console.log(res.data)
+
             this.setState({users: res.data})
         })
     }
@@ -27,7 +27,7 @@ class LogInPage extends Component {
     createUser = () => {
         axios.post('/api/v1/user', this.state.user)
             .then(res => {
-                console.log(res.data)
+               
                 this.setState({createdUser: res.data})
             })
     }

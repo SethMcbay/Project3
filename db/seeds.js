@@ -2,7 +2,7 @@ const Wine = require('../models/Wine.js')
 const User = require('../models/User')
 const mongoose = require('mongoose')
   
-// using Promises
+
 Wine.deleteMany().then(() => {
       const partidaCreussm = new Wine({name: 'Partida Creus SM', region: 'Catalonia, Spain', type: 'Sumoll',
       year: 2014, rating: 3.5, description: 'An interesting earthiness witht the taste of apple notes. Sharp and medicinal with herbs and some interestings crystalline fruit.'})

@@ -62,53 +62,7 @@ class Wine extends Component {
         <Link to="/wines">Back to Wines Home</Link>
         <h1>Wine</h1>
         {this.state.wine.name}<br></br>Name
-        {/* <button onClick={this.toggleEditForm}>Edit</button>
-        {/* {
-            this.state.isEditFormDisplayed
-                ? <form onSubmit={this.updateWine}>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            id="name"
-                            type="text"
-                            name="name"
-                            onChange={this.handleChange}
-                            value={this.state.wine.name}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="description">Description</label>
-                        <textarea
-                            id="description"
-                            name="description"
-                            onChange={this.handleChange}
-                            value={this.state.wine.description}
-                        />
-                    </div>
-                    <button>Update</button>
-                </form>
-                : <div>
-                    <div>
-                        Name: {this.state.wine.name}
-                    </div>
-                    <div>
-                      Type: {this.state.wine.type}
-                    </div>
-                    <div>
-                        Description: {this.state.wine.description}
-                    </div>
-                    <div>
-                      Region: {this.state.wine.region}
-                    </div>
-                    <div> 
-                      Year: {this.state.wine.year}
-                    </div>
-                    <div>
-                      Rating: {this.state.wine.rating}
-                    </div>
-                    <button onClick={this.deleteWine}>Delete</button>
-                </div>
-        } */} 
+       
       </div> 
     );
   }
