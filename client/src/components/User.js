@@ -40,11 +40,16 @@ class User extends Component {
       this.setState({ redirectToHome: true })
     })
   }
-  deleteWine = (wineId) => {
-    axios.delete(`/user/${this.props.match.params.userId}/userWine/${wineId}`).then(res => {
-      this.setState({ redirectToHome: true })
+  deleteWine = (e, wineId) => {
+    console.log(e)
+    console.log(wineId)
+    e.preventDefault()
+    axios.delete(`/api/v1/user/${this.props.match.params.userId}/userWine/${wineId}`).then(res => {
+      this.getUser()
+      // this.setState({ redirectToHome: true })
     })
   }
+
   toggleAddForm = () => {
     this.setState((state, props) => {
       return { isAddFormDisplayed: !this.state.isAddFormDisplayed }
@@ -175,7 +180,7 @@ class User extends Component {
                     <p>{wine.year}</p>
                     <p>{wine.rating}</p>
                     <p>{wine.description}</p>
-                    <button onClick= {()=>this.deleteWine(wine._id)}>Delete</button>
+                    <button onClick= {(e)=>this.deleteWine(e, wine._id)}>Delete</button>
                   </div>
                 )
 

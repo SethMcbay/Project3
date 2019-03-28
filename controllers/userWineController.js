@@ -38,15 +38,13 @@ const userWineController = {
                 }
     },
     delete: async (req, res) => {
-        console.log('DELETE')
-        try {
-          const userId = req.params.wineId
-          const deletedWine = await UserWine.findByIdAndRemove(wineId)
-          res.json(deletedWine)
-        } catch (err) {
-          console.log(err)
-          res.status(500).json(err)
-        }
+        User.findById(req.params.userId).then((user) => {
+            UserWine.findByIdAndDelete(req.params.wineId).then(() => {
+                user.save()
+            })
+            res.send(200)
+        })
+        
     }
 
 }
