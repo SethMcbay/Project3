@@ -13,15 +13,17 @@ class Wine extends Component {
   }
 
   componentDidMount = () => {
-    //   console.log(this.props.match.params.id)
-      axios.get(`/api/v1/wine/${this.props.match.params.id}`).then(res => {
-          console.log(res.data)
-        this.setState({wine: res.data})
-      })
+      console.log(this.props.match.params.id)
+      this.getWines()
+  }
+
+  getWines = async () => {
+      const res = await axios.get(`/api/v1/wines/${this.props.match.params.id}`)
+      this.setState({wine: res.data})
   }
 
   deleteWine = () => {
-      axios.delete(`/api/v1/wine/${this.props.match.params.id}`).then(res => {
+      axios.delete(`/api/v1/wines/${this.props.match.params.id}`).then(res => {
           this.props.history.goBack()
       })
   }
@@ -59,7 +61,8 @@ class Wine extends Component {
       <div>
         <Link to="/wines">Back to Wines Home</Link>
         <h1>Wine</h1>
-        <button onClick={this.toggleEditForm}>Edit</button>
+        {this.state.wine.name}<br></br>Name
+        {/* <button onClick={this.toggleEditForm}>Edit</button>
         {/* {
             this.state.isEditFormDisplayed
                 ? <form onSubmit={this.updateWine}>
@@ -105,7 +108,7 @@ class Wine extends Component {
                     </div>
                     <button onClick={this.deleteWine}>Delete</button>
                 </div>
-        } */}
+        } */} 
       </div> 
     );
   }

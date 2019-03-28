@@ -29,19 +29,27 @@ const userWineController = {
      show: async (req, res) => {
                 try {
                     const userId = req.params.userId
-                    const wine = await User.findById(userId).then(user =>{
-                        const userWine = user.wines.id(req.params.wineId)
-                        res.json(userWine)
-                    })
+                    const wineId = req.params.wineId
+                    const savedWine = await UserWine.findById(wineId)
+                    res.json(savedWine)
                 } catch (err) {
                     console.log(err)
                     res.json(err)
                 }
+    },
+    delete: async (req, res) => {
+        console.log('DELETE')
+        try {
+          const userId = req.params.wineId
+          const deletedWine = await UserWine.findByIdAndRemove(wineId)
+          res.json(deletedWine)
+        } catch (err) {
+          console.log(err)
+          res.status(500).json(err)
+        }
     }
 
-
 }
-
 
 
 module.exports = userWineController

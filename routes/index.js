@@ -19,6 +19,9 @@ router.delete('/wine/:wineId', wineController.delete)
 
 router.get('/user/:userId/userwine', userWineController.index)
 router.post('/user/:userId/userwine', userWineController.create)
+router.get('/user/:userId/userWine/:wineId', userWineController.show)
+router.delete('/user/:userId/userWine/:wineId', userWineController.delete)
+    
 
 
 module.exports = router

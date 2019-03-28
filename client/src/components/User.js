@@ -25,17 +25,11 @@ class User extends Component {
   }
 
   componentDidMount = () => {
-    // console.log(this.props.match.params.userId)
-    // axios.get(`/api/v1/user/${this.props.match.params.userId}`).then(res => {
-    //   console.log(res.data)
-    //   this.setState({ user: res.data })
-    // })
     this.getUser()
   }
 
   getUser = () => {
     axios.get(`/api/v1/user/${this.props.match.params.userId}`).then(res => {
-      // console.log(res.data)
       this.setState({ user: res.data })
     })
   }
@@ -46,23 +40,17 @@ class User extends Component {
       this.setState({ redirectToHome: true })
     })
   }
-
+  deleteWine = (wineId) => {
+    axios.delete(`/user/${this.props.match.params.userId}/userWine/${wineId}`).then(res => {
+      this.setState({ redirectToHome: true })
+    })
+  }
   toggleAddForm = () => {
     this.setState((state, props) => {
       return { isAddFormDisplayed: !this.state.isAddFormDisplayed }
     })
   }
 
-  // handleChange = (e) => {
-  //   const cloneUser = { ...this.state.user }
-  //   cloneUser[e.target.name] = e.target.value
-  //   this.setState({ user: cloneUser })
-  // }
-  // handleChange = (e) => {
-  //   const cloneUser = { ...this.state.user }
-  //   cloneUser[e.target.name] = e.target.value
-  //   this.setState({ user: cloneUser })
-  // }
   handleChange = (e) => {
     const newWine = {...this.state.newUserWine}
     newWine[e.target.name] = e.target.value
@@ -181,25 +169,20 @@ class User extends Component {
               <div>Wine: {this.state.user.winecellar.map((wine, i) => {
                 return(
                   <div key={i}>
-                    <Link to={`/wines/${wine._id}`}>{wine.name}</Link>
-                    {wine.region}
-                    {wine.type}
-                    {wine.year}
-                    {wine.rating}
-                    {wine.description} 
+                    <Link to={`/user/${this.props.match.params.userId}/userwine/${wine._id}`}>{wine.name}</Link>
+                    <p>{wine.region}</p>
+                    <p>{wine.type}</p>
+                    <p>{wine.year}</p>
+                    <p>{wine.rating}</p>
+                    <p>{wine.description}</p>
+                    <button onClick= {()=>this.deleteWine(wine._id)}>Delete</button>
                   </div>
                 )
 
               }) }</div>
-
-
-{/* make a form where they can post wine to axios: api v1 user userId userwine */}
-                 
               <button onClick={() => this.deleteUser(this.state.user._id)}>Delete</button>
             </div>
         }
-
-        {/* <Wines userId={this.props.match.params.userId}/> */}x
          
       </div>
     )

@@ -16,7 +16,9 @@ Wine.deleteMany().then(() => {
     const Peter = new User({name: 'Peter', age: 39,  winepreference: 'Cabernet', email: 'peter@yahoo.com'})
     return Peter.save()
   }).then(() => {
-  const Seth = new User({name: 'Seth', age: 40, winepreference: 'PinotNoir', email: "sethmcbay@yahoo.com", winecellar: []})
+  const laClarine = new Wine({name: 'La Clarine Farm JambaliaRouge', region: 'Sierra Foothills, California', type: 'Rouge', year: 2015, rating: 4,  description: 'This wine has potent berry, funky earth, and herb aromas. Its fruity-floral flavors are tinged with a balsamic nip and a tart, citrus inspired mouthfeel. Natural wine lovers and people excited about the new direction of Californian wine- rejoice!'})
+  laClarine.save()
+  const Seth = new User({name: 'Seth', age: 40, winepreference: 'PinotNoir', email: "sethmcbay@yahoo.com", winecellar: [laClarine]})
   return Seth.save()
 }).then(() => {
   mongoose.connection.close()
